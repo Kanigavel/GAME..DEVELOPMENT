@@ -28,7 +28,78 @@
    Step 7 : Stop.
 
 ## Program :
+~~~
+#include<stdio.h> 
+#include<conio.h> 
+#include<graphics.h> 
+#include<math.h> 
+int maxx,maxy,midx,midy; 
+void axis() 
+{ 
+getch(); 
+cleardevice(); 
+line(midx,0,midx,maxy); 
+line(0,midy,maxx,midy); 
+} 
+void main() 
+{ 
+int gd,gm,x,y,z,o,x1,x2,y1,y2; 
+detectgraph(&gd,&gm); 
+initgraph(&gd,&gm," "); 
+setfillstyle(0,getmaxcolor()); 
+maxx=getmaxx(); 
+maxy=getmaxy(); 
+midx=maxx/2; 
+midy=maxy/2; 
+axis(); 
+bar3d(midx+50,midy-100,midx+60,midy-90,5,1); 
+printf("Enter Translation Factor"); 
+scanf("%d%d%d",&x,&y,&z); 
+axis(); 
+printf("after translation"); 
+bar3d(midx+(x+50),midy-(y+100),midx+x+60,midy-(y+90),5,1); 
+axis(); 
+bar3d(midx+50,midy+100,midx+60,midy-90,5,1); 
+printf("Enter Scaling Factor"); 
+scanf("%d%d%d",&x,&y,&z); 
+axis(); 
+printf("After Scaling"); 
+bar3d(midx+(x*50),midy-(y*100),midx+(x*60),midy-(y*90),5*z,1); 
+axis(); 
+bar3d(midx+50,midy-100,midx+60,midy-90,5,1); 
+printf("Enter Rotating Angle"); 
+scanf("%d",&o); 
+x1=50*cos(o*3.14/180)-100*sin(o*3.14/180); 
+y1=50*cos(o*3.14/180)+100*sin(o*3.14/180); 
+x2=60*sin(o*3.14/180)-90*cos(o*3.14/180); 
+y2=60*sin(o*3.14/180)+90*cos(o*3.14/180); 
+axis(); 
+printf("After Rotation about Z Axis"); 
+bar3d(midx+x1,midy-y1,midx+x2,midy-y2,5,1); 
+axis(); 
+printf("After Rotation about X Axis"); 
+bar3d(midx+50,midy-x1,midx+60,midy-x2,5,1); 
+axis(); 
+printf("After Rotation about Y Axis"); 
+bar3d(midx+x1,midy-100,midx+x2,midy-90,5,1); 
+getch(); 
+closegraph(); 
+}
+
+Program to implement the various transformations on three dimensional odjects using a c coding.
+DEVELOPED BY: Kanigavel M
+REGISTER NUMBER: 212224240070
+~~~
 
 ## Output :
+![image](https://github.com/user-attachments/assets/c85c79a1-0e8f-4c76-b778-fbb128a46a30)
+![image](https://github.com/user-attachments/assets/165af4b1-7c16-4885-8a21-76171766ca1c)
+![image](https://github.com/user-attachments/assets/412a7a36-c3c9-4ff6-951d-77397239105a)
+![image](https://github.com/user-attachments/assets/13643772-e328-4bc3-84bb-a8cd633731ef)
+![image](https://github.com/user-attachments/assets/f1c20189-b6a9-48d3-9f0a-c9fa854487b8)
+![image](https://github.com/user-attachments/assets/dd3cb33b-c7d6-4438-8120-dc9401b26654)
+![image](https://github.com/user-attachments/assets/bd3f89d8-a6d6-41c2-a652-24869ea7e4e8)
+![image](https://github.com/user-attachments/assets/5304025b-9d26-446b-a116-ad9fbc5cd03a)
 
 ## Result :
+Thus, the C program for performing three-dimensional transformations — including translation, scaling, and rotation about the X, Y, and Z axes — was successfully implemented and the output was verified through graphical representation.
